@@ -1,22 +1,53 @@
 {% extends "base.html" %}
+{% block title %}S I G N &nbsp;&nbsp;&nbsp;U P &nbsp;&nbsp;&nbsp;F O R &nbsp;&nbsp;&nbsp;T H E &nbsp;&nbsp;&nbsp;V O I D{% endblock %}
 {% block body %}
 <div>
 <h1>Sign Up for THE VOID</h1>
 <form method="post">
-<table>
-    {% for k, v in dictionary.items() %}
-    <tr>
-        <td class="instructions"><label for="{{ v }}">{{ k }}</label></td>
-        <td class="entry"><input name="{{ v }}" id="{{ v }}" 
-            {% if v=="password" or v=="verify" %}type="password" {% else %}type="text"{% endif %}> 
-        {% if error%}<span class="error">{{error}}</span>{% endif%}</td>
-    </tr>
-    {% endfor %}
-    <tr>
-        <td colspan="2"><input id="submit" type="submit" value="Submit"></td>
-
-    </tr>
-</table>
+        <table>
+    
+                <tr>
+                    <td class="instructions"><label for="username">Username</label></td>
+                    <td class="entry"><input name="username" id="username" 
+                        type="text" value="{{username}}"> 
+                        <span class="error">{{username_error}}</span>   
+            
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="instructions"><label for="password">Password</label></td>
+                    <td class="entry"><input name="password" id="password" 
+                        type="password" > 
+                        <span class="error">{{password_error}}</span>   
+            
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="instructions"><label for="verify">Verify Password</label></td>
+                    <td class="entry"><input name="verify" id="verify" 
+                        type="password" > 
+                        <span class="error">{{verify_error}}</span>   
+            
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="instructions"><label for="email">Email (optional)</label></td>
+                    <td class="entry"><input name="email" id="email" 
+                        type="text" value="{{email}}"> 
+                        <span class="error">{{email_error}}</span>   
+            
+                    </td>
+                </tr>
+                
+                <tr>
+            
+                    <td colspan="2"><input id="submit" type="submit" value="Submit"></td>
+            
+                </tr>
+            </table>
 </form>
 </div>
 {% endblock %}

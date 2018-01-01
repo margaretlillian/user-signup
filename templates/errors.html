@@ -1,0 +1,23 @@
+<span class="error">    
+        {% if username_error %} 
+            {% if v=="username" %} 
+            {{username_error}}
+                {% endif %}
+                {% endif %}
+        {% if password_error %}
+            {% if v=="password" %}
+            {{password_error}}
+            {% endif %}    
+        {% endif %}
+        {% if verify_error %}
+            {% if v=="verify" %}
+            {{verify_error}}
+            {% endif %}    
+        {% endif %}
+        {% if email_error %}
+            {% if v=="email" %}
+            {{email_error}}
+            {% endif %}    
+        {% endif %}
+    
+        </span> 

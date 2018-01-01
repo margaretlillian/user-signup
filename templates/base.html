@@ -35,13 +35,19 @@
         tr {height: 2.25em;}        }
         td.instructions {width: 20%;}
         td.entry {width: 80%;}
-        #welcome {font-size: 4em;
-        letter-spacing: 16px;
-        text-transform: uppercase;}
+        #welcome {
+            font-size: 4em;
+            letter-spacing: 16px;
+            text-transform: uppercase;
+        }
+        .error {
+            color: #f00;
+            font-weight: bold;
+        }
         </style>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>{% block title %} {% endblock %}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
