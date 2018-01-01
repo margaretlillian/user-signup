@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <style type="text/css">
+        body {
+            font: 1.75em monospace;
+            color: #777;
+            background: #111;
+            }
+        div {
+            width: 80%;
+            margin: 0 auto;
+            background: #111;
+            color: #89c4c4;
+            padding: 25px;
+        }
+        h1 {
+            padding: 0;
+            margin: 0;
+        }
+        form {padding-top: 5px;}
+        input {
+            width: 40%;
+            background: #2b3f3f;
+            border: 2px solid rgb(103, 155, 152);
+            color:#89c4c4;
+            font: 1.25em monospace;
+        }
+        #submit {
+            width: 180px;
+            padding: 3px;
+            margin: 10px;
+        }
+        table {width: 100%;}
+        tr {height: 2.25em;}        }
+        td.instructions {width: 20%;}
+        td.entry {width: 80%;}
+        </style>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        
+    </body>
+</html>

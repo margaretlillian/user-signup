@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block body %}
+<div>
+<h1>Sign Up for THE VOID</h1>
+<form method="post">
+<table>
+    {% for k, v in dictionary.items() %}
+    <tr>
+        <td class="instructions"><label for="{{ v }}">{{ k }}</label></td>
+        <td class="entry"><input name="{{ v }}" id="{{ v }}" 
+            {% if v=="password" or v=="verify" %}type="password" {% else %}type="text"{% endif %}></td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td colspan="2"><input id="submit" type="submit" value="Submit"></td>
+
+    </tr>
+</table>
+</form>
+</div>
+{% endblock %}
