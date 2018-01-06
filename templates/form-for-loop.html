@@ -3,14 +3,36 @@
 {% block body %}
 <div>
 <h1>Sign Up for THE VOID</h1>
+
 <form method="post">
 <table>
     {% for k, v in dictionary.items() %}
     <tr>
-        <td class="instructions"><label for="{{ v }}">{{ k }}</label></td>
-        <td class="entry"><input name="{{ v }}" id="{{ v }}" 
-            {% if v=="password" or v=="verify" %}type="password" {% else %}type="text"{% endif %}> 
-            <span class="error"></span>   
+        <td class="instructions"><label for="{{ k }}">{{ v }}</label></td>
+        <td class="entry"><input name="{{ k }}" id="{{ k }}" 
+            {% if k=="password" or k=="verify" %}type="password" {% else %}type="text"{% endif %}> 
+            <span class="error">        
+                {% if username_error %} 
+                {% if k=="username" %} 
+                {{username_error}}
+                    {% endif %}
+                    {% endif %}
+            {% if password_error %}
+                {% if k=="password" %}
+                {{password_error}}
+                {% endif %}    
+            {% endif %}
+            {% if verify_error %}
+                {% if k=="verify" %}
+                {{verify_error}}
+                {% endif %}    
+            {% endif %}
+            {% if email_error %}
+                {% if k=="email" %}
+                {{email_error}}
+                {% endif %}    
+            {% endif %}
+        </span>   
 
         </td>
     </tr>
