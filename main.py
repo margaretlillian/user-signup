@@ -15,24 +15,24 @@ def index():
 
 @app.route("/", methods=['POST'])
 def validate():
-    username = request.form['username']
-    password = request.form['password']
-    verify = request.form['verify']
-    email = request.form['email']
+    username = FormValidator(request.form['username'], 3, 20)
+    password = FormValidator(request.form['password'], 8, 100)
+    verify = FormValidator(request.form['verify'], 8, 100)
+    email = FormValidator(request.form['email'], 0, 30)
 
     username_error = ''
     password_error = ''
     email_error = ''
     verify_error = ''
 
-    if FormValidator.is_wrong_length(username, 3, 20) or FormValidator.has_bad_characters(username):
+    if username.is_wrong_length() or username.has_bad_characters():
         username_error = "This username is trash. Try again! >:("
-    if FormValidator.is_wrong_length(password, 8, 100):
+    if password.is_wrong_length():
         password_error = "Your password picking skills suck. Try again. >:("
     if password != verify:
         verify_error="The passwords need to match, you knob. >:("
-    if FormValidator.is_invalid_email(email):
-        email_error = "I refuse to accept this as a legitimate email! >:("
+    if email.is_invalid_email():
+        email_error = "This email address is illegitimate! >:("
 
     if not username_error and not password_error and not verify_error and not email_error:
         return render_template("welcome.html", person=username)

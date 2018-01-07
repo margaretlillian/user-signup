@@ -13,24 +13,21 @@
             {% if k=="password" or k=="verify" %}type="password" {% else %}type="text"{% endif %}> 
             <span class="error">        
                 {% if username_error %} 
-                {% if k=="username" %} 
-                {{username_error}}
+                    {% if k=="username" %} 
+                        {{username_error}}
                     {% endif %}
+                {% elif password_error %}
+                    {% if k=="password" %}
+                        {{password_error}} 
                     {% endif %}
-            {% if password_error %}
-                {% if k=="password" %}
-                {{password_error}}
-                {% endif %}    
-            {% endif %}
-            {% if verify_error %}
-                {% if k=="verify" %}
-                {{verify_error}}
-                {% endif %}    
-            {% endif %}
-            {% if email_error %}
-                {% if k=="email" %}
-                {{email_error}}
-                {% endif %}    
+                {% elif verify_error %}
+                    {% if k=="verify" %}
+                        {{verify_error}}
+                    {% endif %} 
+                {% elif email_error %}
+                    {% if k=="email" %}
+                        {{email_error}}
+                    {% endif %}
             {% endif %}
         </span>   
 
