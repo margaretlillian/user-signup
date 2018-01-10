@@ -10,7 +10,7 @@ def index():
     form = {"username": "Username",
     "password": "Password",
     "verify": "Verify Password",
-    "email": "Email Address"}
+    "email": "Email Address (optional)"}
     return render_template("form-for-loop.html", dictionary=form)
 
 @app.route("/", methods=['POST'])
@@ -27,10 +27,10 @@ def validate():
 
     if FormValidator.is_wrong_length(username, 3, 20) or FormValidator.has_bad_characters(username):
         username_error = "This username is trash. Try again! >:("
+    if password != verify or FormValidator.is_wrong_length(verify, 8, 100):
+        verify_error="The passwords need to match, you knob. >:("
     if FormValidator.is_wrong_length(password, 8, 100):
         password_error = "Your password picking skills suck. Try again. >:("
-    if password != verify:
-        verify_error="The passwords need to match, you knob. >:("
     if FormValidator.is_invalid_email(email):
         email_error = "I refuse to accept this as a legitimate email! >:("
 
